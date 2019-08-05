@@ -134,7 +134,9 @@ module.exports = class Masker {
       if (typeof maskWord !== 'undefined') foundMap[word] = maskWord
     }
     if (!allowNotFound && typeof maskWord === 'undefined')
-      throw new Error(`No mask word found on ${file.path}:${columnNameAlias}`)
+      throw new Error(
+        `No mask word found for ${word} on ${file.path}:${columnNameAlias}`
+      )
     if (maskWord === null)
       throw new Error(
         `Null is not allowed on mask word: ${file.path}:${columnNameAlias}`
